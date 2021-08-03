@@ -1,4 +1,4 @@
-package com.consultinghm.test2;
+package com.consultinghm.prueba;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,22 +23,25 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.consultinghm.prueba.interfaces.VolleyCallbacks;
+import com.consultinghm.prueba.interfaces.VolleyCallbacksMunicipios;
+import com.consultinghm.prueba.interfaces.VolleyCallbacksProfesiones;
+import com.consultinghm.prueba.model.Municipios;
+import com.consultinghm.prueba.model.Profesiones;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-
-import kotlin.text.UStringsKt;
 
 public class MainActivity extends AppCompatActivity {
+    final String base_url  = "http://192.168.0.12:80";
+
     private RequestQueue mQueue;
     private TextView mTextViewResult;
     private Spinner spinnerMunicipios;
     private Spinner spinnerProfesiones;
-    final String base_url  = "http://192.168.0.12";
     private EditText edtCedula;
     private EditText edtNombre;
     private EditText edtApellidos;
@@ -259,8 +262,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public boolean updateProfesional(VolleyCallbacks callback) {
-        Toast.makeText(getApplicationContext(),"Cedula no puede estar vacia "+edtCedula.getText().toString().equals(""),Toast.LENGTH_LONG).show();
 
+        if ( edtCedula.getText().toString().equals("") ) {
+            Toast.makeText(getApplicationContext(),"Cedula no puede estar vacia",Toast.LENGTH_LONG).show();
+            return false;
+        }
         String url = base_url+"/update";
         JSONObject obj = new JSONObject();
         try {
@@ -372,67 +378,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public interface VolleyCallbacksMunicipios{
-        void onSuccess(ArrayList<Municipios> data);
-        void onSuccess(String txt);
-    }
-    public interface VolleyCallbacksProfesiones{
-        void onSuccess(ArrayList<Profesiones> data);
-        void onSuccess(String txt);
-    }
-    public interface VolleyCallbacks{
-        void onSuccess(String txt);
-    }
 
-    public  class Municipios{
-        private String id;
-        private String municipio;
 
-        @Override
-        public String toString() {
-            return this.municipio;
-        }
 
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public String getMunicipio() {
-            return municipio;
-        }
-
-        public void setMunicipio(String municipio) {
-            this.municipio = municipio;
-        }
-
-    }
-
-    public class Profesiones {
-        private   String id;
-        private String profesion;
-
-        @Override
-        public String toString() {
-            return this.profesion;
-        }
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public String getProfesion() {
-            return profesion;
-        }
-
-        public void setProfesion(String profesion) {
-            this.profesion = profesion;
-        }
-    }
 }

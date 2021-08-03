@@ -1,4 +1,4 @@
-package com.consultinghm.test2.tests;
+package com.consultinghm.prueba.tests;
 
 import android.content.Context;
 

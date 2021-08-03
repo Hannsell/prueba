@@ -1,4 +1,4 @@
-package com.consultinghm.test2;
+package com.consultinghm.prueba;
 
 import org.junit.Test;
 
