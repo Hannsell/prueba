@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Prueba</string>
+    <string name="txtCedula">Cedula</string>
+    <string name="txtNombres">Nombres</string>
+    <string name="txtApellidos">Apellidos</string>
+    <string name="txtSexo">Sexo</string>
+    <string name="txtMasculino">Masculino</string>
+    <string name="txtFemenino">Femenino</string>
+    <string name="txtRegistrar">Registrar</string>
+    <string name="txtEliminar">Eliminar</string>
+    <string name="txtBuscar">Buscar</string>
+    <string name="txtActualizar">Actualizar</string>
+
+</resources>
