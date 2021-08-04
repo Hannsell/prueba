@@ -9,118 +9,135 @@
     tools:context="com.consultinghm.prueba.MainActivity">
 
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent">
 
-        android:layout_marginBottom="50dp">
+        <ScrollView
+            android:id="@+id/form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edtCedula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="@string/txtCedula"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/edtNombres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="@string/txtNombres"
+                    android:inputType="textPersonName"
+                    android:importantForAutofill="no" />
+
+                <EditText
+                    android:id="@+id/edtApellidos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="@string/txtApellidos"
+                    android:inputType="textPersonName"
+                    android:importantForAutofill="no" />
+
+                <RadioGroup
+                    android:id="@+id/sexoGrupo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp">
+
+                    <RadioButton
+                        android:id="@+id/rbMasculino"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/txtMasculino" />
+
+                    <RadioButton
+                        android:id="@+id/rbFemenino"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtFemenino" />
+                </RadioGroup>
+
+                <Spinner
+                    android:id="@+id/spMunicipios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp" />
+
+                <Spinner
+                    android:id="@+id/spProfesiones"
+                    style="@style/CardView.Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:spinnerMode="dialog" />
+
+                <DatePicker
+                    android:id="@+id/fechaNacimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="2dp"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner" />
+
+            </LinearLayout>
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_below="@+id/form"
+            android:layout_marginTop="-71dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/edtCedula"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btnDel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:ems="10"
-                android:hint="@string/txtCedula"
-                android:inputType="text" />
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:text="@string/txtEliminar"
+                android:textSize="10dp" />
 
-            <EditText
-                android:id="@+id/edtNombres"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btUpdate"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:ems="10"
-                android:hint="@string/txtNombres"
-                android:inputType="textPersonName" />
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:text="@string/txtActualizar"
+                android:textSize="10dp" />
 
-            <EditText
-                android:id="@+id/edtApellidos"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:ems="10"
-                android:hint="@string/txtApellidos"
-                android:inputType="textPersonName" />
-
-            <RadioGroup
-                android:id="@+id/sexoGrupo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp">
-
-                <RadioButton
-                    android:id="@+id/rbMasculino"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/txtMasculino" />
-
-                <RadioButton
-                    android:id="@+id/rbFemenino"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txtFemenino" />
-            </RadioGroup>
-
-            <Spinner
-                android:id="@+id/spMunicipios"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp" />
-
-            <Spinner
-                android:id="@+id/spProfesiones"
-                style="@style/CardView.Light"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:spinnerMode="dialog" />
-
-            <DatePicker
-                android:id="@+id/fechaNacimiento"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="2dp"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner" />
-
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:text="@string/txtRegistrar"
+                android:textSize="10sp" />
         </LinearLayout>
-    </ScrollView>
 
-    <Button
-        android:id="@+id/btnDel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_alignParentBottom="true"
-        android:text="@string/txtEliminar"
-        />
-
-    <Button
-        android:id="@+id/btUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_toStartOf="@+id/btnAdd"
-        android:text="@string/txtActualizar" />
-
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/txtRegistrar" />
+    </RelativeLayout>
 
 
 </RelativeLayout>
